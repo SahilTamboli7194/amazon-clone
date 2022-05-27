@@ -9,4 +9,8 @@ class Seller extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
+
+    public function products(){
+        return $this->belongsToMany(Product::class,'seller_prodcuts');
+    }
 }

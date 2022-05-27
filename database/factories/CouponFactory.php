@@ -18,7 +18,7 @@ class CouponFactory extends Factory
     {
         return [
             'name'=>$this->faker->word(),
-            'discount_percentage'=>$this->faker->randomFloat(10, 25),
+            'discount_percentage'=>$this->faker->randomFloat(2, 10, 25),
             'valid_till'=>$this->faker->date(),
             'code'=>$this->faker->unique()->word()
         ];

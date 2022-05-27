@@ -9,4 +9,12 @@ class CartProduct extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
+
+    public function cart(){
+        return $this->belongsTo(Cart::class);
+    }
+
+    public function prodcuts(){
+        return $this->belongsTo(Product::class);
+    }
 }

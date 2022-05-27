@@ -22,7 +22,7 @@ class ProductFactory extends Factory
     {
         return [
             'name'=>$this->faker->word(),
-            'description'=>$this->faker->paragraphs(4),
+            'description'=>$this->faker->paragraph(),
             'price'=>$this->faker->numberBetween(100,10000),
             'img_path'=>$this->faker->sentence(),
             'category_id'=>Category::factory(),
