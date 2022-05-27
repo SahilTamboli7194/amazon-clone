@@ -21,7 +21,7 @@ class ReviewFactory extends Factory
         return [
             'user_id'=>User::factory(),
             'product_id'=>Product::factory(),
-            'body'=>$this->faker->paragraphs()
+            'body'=>$this->faker->paragraph()
         ];
     }
 }

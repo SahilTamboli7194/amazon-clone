@@ -9,4 +9,8 @@ class Coupon extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
+
+    public function order(){
+        return $this->hasOne(Order::class);
+    }
 }
