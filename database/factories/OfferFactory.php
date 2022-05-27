@@ -17,7 +17,9 @@ class OfferFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=>$this->faker->word(),
+            'discount_percentage'=>$this->faker->randomFloat(10, 25),
+            'valid_till'=>$this->faker->date(),
         ];
     }
 }

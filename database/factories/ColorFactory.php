@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Seller>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class SellerFactory extends Factory
+class ColorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,7 @@ class SellerFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->unique()->word(),
-            'address'=>$this->faker->address()
+            'name'=>$this->faker->word()
         ];
     }
 }

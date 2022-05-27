@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\CartProduct;
+use App\Models\OrderProduct;
+use App\Models\Review;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        OrderProduct::factory(1)->create();
+        CartProduct::factory(1)->create();
+        Review::factory(1)->create();
     }
 }

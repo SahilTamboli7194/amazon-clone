@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
+use App\Models\Seller;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,8 @@ class SellerProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'seller_id'=>Seller::factory(),
+            'product_id'=>Product::factory()
         ];
     }
 }

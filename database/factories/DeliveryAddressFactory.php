@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\AddressType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class DeliveryAddressFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id'=>User::factory(),
+            'address_type_id'=>AddressType::factory(),
+            'body'=>$this->faker->address()
         ];
     }
 }
