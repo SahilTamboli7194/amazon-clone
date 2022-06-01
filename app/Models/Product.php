@@ -31,10 +31,10 @@ class Product extends Model
     }
 
     public function colors(){
-        return $this->belongsToMany(Color::class,'color_prodcuts');
+        return $this->belongsToMany(Color::class,'color_products');
     }
 
     public function sellers(){
-        return $this->belongsToMany(Seller::class,'seller_prodcuts');
+        return $this->belongsToMany(Seller::class,'seller_products');
     }
 }
