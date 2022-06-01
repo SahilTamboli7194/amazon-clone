@@ -2,9 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    //
+    public function index(){
+        return Order::paginate(10);
+    }
+
+    public function show(Order $order){
+        return $order;
+    }
+
+    public function store(){
+        $attributes= request()->validate();
+
+        $order = Order::create($attributes);
+
+        if($order==false){
+            return back()->with('success','Delivery Address Added Successfully');
+        }
+
+        return back()->with('error','something went wrong');
+    }
+
+    public function delete(Order $order){
+
+        $order->delete();
+
+        return back()->with('success','Delivery Address Deleted');
+    }
 }
