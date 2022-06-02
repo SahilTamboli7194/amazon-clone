@@ -15,7 +15,7 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        return User::find($user);
+        return $user;
     }
 
     public function create()
@@ -51,11 +51,35 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        return 'update ' . $user->id;
+        $attributes = request()->validate([
+            'first_name' => 'min:3|max:50',
+            'last_name' => 'min:3|max:50',
+            'date_of_birth' => 'date',
+            'gender' => 'min:1|max:1',
+            'mobile' => 'min:10|max:13|unique:users,mobile',
+            'email' => 'email|min:5|max:50|unique:users,email',
+            'password' => 'min:6|max:10'
+        ]);
+
+        $update = $user->update($attributes);
+
+        if ($update == true) {
+
+            return back()->with('sucess', 'your account has been updated successfully');
+        }
+
+        return back()->with('error', 'Some thing went wrong');
     }
 
-    public function delete()
+    public function destroy(User $user)
     {
-        return 'delete';
+        $delete = $user->delete();
+
+        if ($delete == true) {
+
+            return back()->with('sucess', 'your account has been deleted successfully');
+        }
+
+        return back()->with('error', 'Some thing went wrong');
     }
 }

@@ -8,29 +8,35 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $guarded=['id'];
+    protected $guarded = ['id'];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function deliveryAddress(){
+    public function deliveryAddress()
+    {
         return $this->belongsTo(DeliveryAddress::class);
     }
 
-    public function paymentMode(){
+    public function paymentMode()
+    {
         return $this->belongsTo(PaymentMode::class);
     }
 
-    public function coupon(){
+    public function coupon()
+    {
         return $this->belongsTo(Coupon::class);
     }
 
-    public function ordeStatus(){
+    public function ordeStatus()
+    {
         return $this->belongsTo(OrderStatus::class);
     }
 
-    public function orderProduct(){
+    public function orderProduct()
+    {
         return $this->hasMany(Product::class);
     }
 }
