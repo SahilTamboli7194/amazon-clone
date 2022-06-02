@@ -1,25 +1,26 @@
 <?php
 
-use App\Http\Controllers\AddressTypeController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CartProductController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ColorController;
-use App\Http\Controllers\ColorProductController;
-use App\Http\Controllers\CouponController;
-use App\Http\Controllers\DeliveryAddressController;
-use App\Http\Controllers\OfferController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrderProductController;
-use App\Http\Controllers\OrderStatusController;
-use App\Http\Controllers\PaymentModeController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SellerController;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AddressTypesController;
+use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\CartProductsController;
+use App\Http\Controllers\CartsController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ColorProductsController;
+use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\DeliveryAddressesController;
+use App\Http\Controllers\OffersController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\OrderStatusesController;
+use App\Http\Controllers\PaymentModesController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\SellerProductsController;
+use App\Http\Controllers\SellersController;
+use App\Http\Controllers\SubCategoriesController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,4 +56,44 @@ Route::get('/', function () {
 // Route::get('/user/{user:id}/{user_type}/edit',[UserController::class,'edit']);
 // Route::patch('/user/{user:id}',[UserController::class,'update']);
 // Route::delete('user/{user:id}',[UserController::class,'delete']);
-Route::resource('users',UsersController::class);
+
+
+Route::resource('users', UsersController::class);
+
+Route::resource('products', ProductsController::class);
+
+Route::resource('address-types', AddressTypesController::class);
+
+Route::resource('brands', BrandsController::class);
+
+Route::resource('cart-products', CartProductsController::class);
+
+Route::resource('carts', CartsController::class);
+
+Route::resource('categories', CategoriesController::class);
+
+Route::resource('color-products', ColorProductsController::class);
+
+Route::resource('colors', ColorsController::class);
+
+Route::resource('coupons', CouponsController::class);
+
+Route::resource('delivery-addresses', DeliveryAddressesController::class);
+
+Route::resource('offers', OffersController::class);
+
+Route::resource('orders', OrdersController::class);
+
+Route::resource('order-statuses', OrderStatusesController::class);
+
+Route::resource('payment-modes', PaymentModesController::class);
+
+Route::resource('reviews', ReviewsController::class);
+
+Route::resource('roles', RolesController::class);
+
+Route::resource('seller-products', SellerProductsController::class);
+
+Route::resource('sellers', SellersController::class);
+
+Route::resource('sub-categories', SubCategoriesController::class);

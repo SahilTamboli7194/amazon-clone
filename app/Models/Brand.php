@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasFactory;
-    protected $guarded=['id'];
+    protected $guarded = ['id'];
 
-    public function prodcuts(){
+    public function prodcuts()
+    {
         return $this->hasMany(Product::class);
     }
 }
