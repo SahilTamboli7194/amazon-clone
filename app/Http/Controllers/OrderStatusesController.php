@@ -9,7 +9,7 @@ class OrderStatusesController extends Controller
 {
     public function index()
     {
-        return OrderStatus::paginate(10);
+        // return OrderStatus::paginate(10);
     }
 
     public function show(OrderStatus $orderStatus)

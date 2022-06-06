@@ -9,11 +9,13 @@ class OrdersController extends Controller
 {
     public function index()
     {
-        return Order::paginate(10);
+        return $this->getAuthUser()->orders()->paginate(10);
     }
 
     public function show(Order $order)
     {
+        $this->authorize('view', $order);
+        
         return $order;
     }
 
