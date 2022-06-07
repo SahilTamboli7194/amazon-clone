@@ -14,9 +14,9 @@ class OrdersController extends Controller
 
     public function show(Order $order)
     {
-        $this->authorize('view', $order);
-        
-        return $order;
+        return $this->authorize('view', $order);
+
+        //return $order;
     }
 
     public function store()

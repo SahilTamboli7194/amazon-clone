@@ -9,7 +9,9 @@ class DeliveryAddressesController extends Controller
 {
     public function index()
     {
-        return DeliveryAddress::paginate(10);
+        //return DeliveryAddress::paginate(10);
+
+        return $this->getAuthUser()->deliveryAddresses()->paginate(10);
     }
 
     public function show(DeliveryAddress $deliveryAddress)
@@ -19,6 +21,7 @@ class DeliveryAddressesController extends Controller
 
     public function store()
     {
+
         $attributes = request()->validate([
             'body' => 'required|min:3|max:10',
             'address_type' => 'required'
@@ -36,6 +39,9 @@ class DeliveryAddressesController extends Controller
     public function update(DeliveryAddress $deliveryAddress)
     {
 
+        if ($this->getAuthUser()->cannot('update', $deliveryAddress)) {
+            abort(403);
+        }
         $attributes = request()->validate([
             'body' => 'required|min:3|max:10'
         ]);
@@ -51,7 +57,9 @@ class DeliveryAddressesController extends Controller
 
     public function destroy(DeliveryAddress $deliveryAddress)
     {
-
+        if ($this->getAuthUser()->cannot('delete', $deliveryAddress)) {
+            abort(403);
+        }
         $deliveryAddress->delete();
 
         return back()->with('success', 'Delivery Address Deleted');

@@ -9,12 +9,14 @@ class CartsController extends Controller
 {
     public function index()
     {
-        return Cart::paginate(10);
+        //return Cart::paginate(10);
+        return $this->getAuthUser()->cart();
     }
 
     public function show(Cart $cart)
     {
-        return $cart;
+        return $this->authorize('view', $cart);
+        //return $cart;
     }
 
     public function create()
@@ -41,6 +43,9 @@ class CartsController extends Controller
     public function destroy(cart $cart)
     {
 
+        if ($this->getAuthUser()->cannot('delete', $cart)) {
+            abort(403);
+        }
         $cart->delete();
 
         return back()->with('success', 'cart Deleted');
